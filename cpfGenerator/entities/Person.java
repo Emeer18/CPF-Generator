@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Person {
     public String name;
+    public String cpfP;
     public int state;
+
 
     Scanner sc = new Scanner(System.in);
 
@@ -35,8 +37,8 @@ public class Person {
                            8 - SP
                            9 - PR, SC""");
 
-        int choice = sc.nextInt();                           
-        setState(choice);
+        int state = sc.nextInt();                           
+        setState(state);
     }
 
 }
