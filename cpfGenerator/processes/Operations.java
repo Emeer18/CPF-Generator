@@ -38,33 +38,30 @@ public class Operations {
                 dv2 = 0;
             }
             else {
-                dv2 = dv2 % 11;
-                dv2 = 11 - dv2;
+                result = result % 11;
+                dv2 = 11 - result;
             }
         }
         return dv2 ;
     }
 
-    public int [] allocationDv1(int [] firstNineNumbers, int [] firstTeenNumbers){
-
-        for(int i = 0;  i < firstTeenNumbers.length; i++){             
-            for(int j = 0; j < firstNineNumbers.length; j++){          
-                firstTeenNumbers[i] = firstNineNumbers [j];
-                i++;
+        public int[] allocationDv1(int[] firstNineNumbers, int[] firstTeenNumbers) {
+            for (int i = 0; i < 9; i++) { 
+                firstTeenNumbers[i] = firstNineNumbers[i]; 
             }
-            firstTeenNumbers[i] = dv1;
-        }
-        return firstTeenNumbers;
+            firstTeenNumbers[9] = dv1; 
+            return firstTeenNumbers;
+
     }
     public int [] allocationDv2(int [] firstTeenNumbers, int [] cpf){
 
-        for(int i = 0;  i < cpf.length; i++){             
-            for(int j = 0; j < firstTeenNumbers.length; j++){          
-                cpf[i] = firstTeenNumbers [j];
-                i++;
-            }
-            cpf[i] = dv2;
+
+        for(int i = 0;  i < 10; i++){             
+            cpf[i] = firstTeenNumbers[i];
+
         }
+        cpf[10] = dv2;
+        
         return cpf;
     }
 }

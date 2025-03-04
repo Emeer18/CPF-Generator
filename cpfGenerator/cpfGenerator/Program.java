@@ -50,11 +50,16 @@ public class Program {
                         firstNineNumbers[i] = person.getState();
                     } 
                 }
-            
-                operations.dv1 = operations.calcDv1(firstNineNumbers);
+
+                operations.calcDv1(firstNineNumbers);
                 firstTeenNumbers = operations.allocationDv1(firstNineNumbers, firstTeenNumbers);
-                operations.dv2 = operations.calcDv2(firstTeenNumbers);
+
+                operations.calcDv2(firstTeenNumbers);
                 person.setCpf(operations.allocationDv2(firstTeenNumbers, person.getCpf()));
+
+                for(int top : person.getCpf()){
+                    System.out.print(top);
+                }
 
                 System.out.println();
 
