@@ -46,7 +46,7 @@ public class Program {
                     
                     firstNineNumbers[i] = random.nextInt(10);
 
-                    if (i == 2) {
+                    if (i == 9) {
                         firstNineNumbers[i] = person.getState();
                     } 
                 }
