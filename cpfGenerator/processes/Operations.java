@@ -1,10 +1,13 @@
 package processes;
 
+import entities.Person;
+
 public class Operations {
 
     public int dv1;
     public int dv2;
     private int result;
+    Person person = new Person();
 
     public int calcDv1(int[] firstNineNumbers){
 

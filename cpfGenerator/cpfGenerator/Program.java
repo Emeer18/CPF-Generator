@@ -15,26 +15,31 @@ public class Program {
         Random random = new Random();
         Operations operations = new Operations();
         List<Person> list = new ArrayList<>();
-        StringBuilder strBuilder = new StringBuilder();
+
         
 
         int[] firstNineNumbers = new int [9];
         int[] firstTeenNumbers = new int [10];
-        int[] cpf = new int [11];
+        
         int choice = 1;
+        String name;
 
         do {
 
-            System.out.println("Tecle 1 para gerar o cpf, 2 para imprimir os cpf's já validados ou 2 para sair.");
+            Person person = new Person();
+            StringBuilder strBuilder = new StringBuilder();
+            System.out.println("Press 1 to generate a CPF, 2 to print the already validated CPFs, or 3 to exit.");
             choice = sc.nextInt();
             System.out.println();
 
             if(choice == 1){
 
-                Person person = new Person();
-                System.out.println("Digite seu nome : ");
+                
+                System.out.println("Enter your name :");
                 sc.nextLine();
-                person.name = sc.nextLine();
+                
+                name = sc.nextLine();
+                person.setName(name);
                 person.choiceState();
 
                 for(int i = 0; i < firstNineNumbers.length ; i++){
@@ -49,37 +54,38 @@ public class Program {
                 operations.dv1 = operations.calcDv1(firstNineNumbers);
                 firstTeenNumbers = operations.allocationDv1(firstNineNumbers, firstTeenNumbers);
                 operations.dv2 = operations.calcDv2(firstTeenNumbers);
-                cpf = operations.allocationDv2(firstTeenNumbers, cpf);
+                person.setCpf(operations.allocationDv2(firstTeenNumbers, person.getCpf()));
 
                 System.out.println();
 
-                System.out.print(person.name + "\nSeu cpf válido é : ");
-                for(int i = 0;  i < cpf.length; i++){
-                    System.out.print(cpf[i]);
-                    strBuilder.append(cpf[i]);
+                System.out.print(person.getName() + "\nYour valid CPF is:");
+                for(int i = 0;  i < person.getCpf().length; i++){
+                    System.out.print(person.getCpf()[i]);
+                    strBuilder.append(person.getCpf()[i]);
                 }
 
                 String str = strBuilder.toString();
-                person.cpfP = str;
+                person.setCpfString(str);
 
                 list.add(person);
 
                 System.out.println();
                 System.out.println();
             }
+            
             if(choice == 2){
-                break;
+                person.setPerson(list);
             }
 
             if(choice == 3){
-                for(Person objList : list){
-                    System.out.println("Name : " + objList.name + "\nCpf : " + objList.cpfP);
-                }
+                break;
             }
+
             
-        } while(choice == 1);
+        } while(choice != 3);
         
 
         System.out.println("Você saiu.");
+        sc.close();
     }
 }    
