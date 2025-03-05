@@ -7,41 +7,40 @@ public class Operations {
     public int dv1;
     public int dv2;
     private int result;
+    private int result2;
     Person person = new Person();
 
     public int calcDv1(int[] firstNineNumbers){
 
-        for(int i = 10; i >= 2; i--){
-            for(int j = 0; j < firstNineNumbers.length; j++ ){
-                result += firstNineNumbers[j] * i;
-                i--;
+        for (int i = 0; i < firstNineNumbers.length; i++) {
+                result += firstNineNumbers[i] * (10 - i);
             }
+
             if(result % 11 < 2){
                 dv1 = 0;
             }
+
             else {
-                result = result % 11;
-                dv1 = 11 - result;
+                int resto = result % 11;
+                dv1 = (resto < 2) ? 0 : (11 - resto);
             }
-        }
         return dv1 ;
     }
 
     public int calcDv2(int[] firstTeenNumbers){
 
-        for(int i = 11; i >= 2; i--){
-            for(int j = 0; j < firstTeenNumbers.length; j++ ){
-                result += firstTeenNumbers[j] * i;
-                i--;
+        for (int i = 0; i < firstTeenNumbers.length; i++) {
+                result2 += firstTeenNumbers[i] * (11 - i);
             }
-            if(result % 11 < 2){
+
+            if(result2 % 11 < 2){
                 dv2 = 0;
             }
+
             else {
-                result = result % 11;
-                dv2 = 11 - result;
+                int resto = result2 % 11;
+                dv2 = (resto < 2) ? 0 : (11 - resto);
             }
-        }
         return dv2 ;
     }
 
